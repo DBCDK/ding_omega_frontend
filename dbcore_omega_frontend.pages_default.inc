@@ -13,6 +13,914 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
+  $handler->name = 'node_view_panel_context_dbc';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -8;
+  $handler->conf = array(
+    'title' => 'DBCore News story',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'User',
+        'keyword' => 'user',
+        'name' => 'user',
+        'type' => 'current',
+        'uid' => NULL,
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'OG group from news node',
+        'keyword' => 'group',
+        'name' => 'og_group_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+      1 => array(
+        'identifier' => 'Library node from OG group',
+        'keyword' => 'library',
+        'name' => 'og_node_from_group',
+        'context' => 'relationship_og_group_from_node_1',
+        'id' => 1,
+      ),
+      2 => array(
+        'identifier' => 'All terms from node',
+        'keyword' => 'terms',
+        'name' => 'terms_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'vid' => array(
+          1 => '1',
+          2 => '2',
+        ),
+        'concatenator' => ',',
+        'id' => 1,
+      ),
+      3 => array(
+        'identifier' => 'Category terms from node being viewed',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity_from_field:field_category-node-taxonomy_term',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'ding_news' => 'ding_news',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'News
+%node:title',
+    'panels_breadcrumbs_paths' => 'news
+<none>',
+  );
+  $display = new panels_display;
+  $display->layout = 'threecol_25_50_25';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'middle' => NULL,
+      'right' => NULL,
+      'top' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'category_menu';
+    $pane->subtype = 'category_menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'url_settings_all_categories' => NULL,
+      'url_settings' => NULL,
+      'context' => array(
+        0 => 'relationship_entity_from_field:field_category-node-taxonomy_term_1',
+        1 => 'relationship_og_node_from_group_1',
+        2 => 'empty',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+      'type' => 'news',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 1,
+      'no_extras' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'right';
+    $pane->type = 'campaign';
+    $pane->subtype = 'campaign';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'ding_campaign_count' => 3,
+      'ding_campaign_offset' => 0,
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+        1 => 'relationship_og_node_from_group_1',
+        2 => 'empty',
+        3 => 'relationship_terms_from_node_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '600',
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'similarterms-ding_content_tags';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-4'] = $pane;
+    $display->panels['right'][1] = 'new-4';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-2';
+  $handler->conf['display'] = $display;
+  $export['node_view_panel_context_dbc'] = $handler;
+
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view_panel_context_dbc2';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -7;
+  $handler->conf = array(
+    'title' => 'DBCore Event',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(
+      0 => array(
+        'identifier' => 'User',
+        'keyword' => 'user',
+        'name' => 'user',
+        'type' => 'current',
+        'uid' => NULL,
+        'id' => 1,
+      ),
+    ),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'OG group from event',
+        'keyword' => 'group',
+        'name' => 'og_group_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+      1 => array(
+        'identifier' => 'Library',
+        'keyword' => 'library',
+        'name' => 'og_node_from_group',
+        'context' => 'relationship_og_group_from_node_1',
+        'id' => 1,
+      ),
+      2 => array(
+        'identifier' => 'Multiple terms from node',
+        'keyword' => 'terms',
+        'name' => 'terms_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'vid' => array(
+          3 => '3',
+          4 => '4',
+          1 => '1',
+          2 => '2',
+        ),
+        'concatenator' => ',',
+        'id' => 1,
+      ),
+      3 => array(
+        'identifier' => 'Category term',
+        'keyword' => 'taxonomy_term',
+        'name' => 'entity_from_field:field_category-node-taxonomy_term',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'ding_event' => 'ding_event',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+    'panels_breadcrumbs_state' => 1,
+    'panels_breadcrumbs_titles' => 'Events
+%node:title',
+    'panels_breadcrumbs_paths' => 'events
+<none>',
+  );
+  $display = new panels_display;
+  $display->layout = 'threecol_25_50_25';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'middle' => NULL,
+      'right' => NULL,
+      'top' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'category_menu';
+    $pane->subtype = 'category_menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'type' => 'events',
+      'context' => array(
+        0 => 'relationship_entity_from_field:field_category-node-taxonomy_term_1',
+        1 => 'relationship_og_node_from_group_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 1,
+      'no_extras' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context_2',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'right';
+    $pane->type = 'campaign';
+    $pane->subtype = 'campaign';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'ding_campaign_count' => 3,
+      'ding_campaign_offset' => 0,
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+        1 => 'relationship_og_node_from_group_1',
+        2 => 'empty',
+        3 => 'relationship_terms_from_node_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '600',
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'similarterms-ding_content_tags';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-4'] = $pane;
+    $display->panels['right'][1] = 'new-4';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-2';
+  $handler->conf['display'] = $display;
+  $export['node_view_panel_context_dbc2'] = $handler;
+
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view_panel_context_dbc3';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -6;
+  $handler->conf = array(
+    'title' => 'DBCore Library (organic group)',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'css_id' => 'ding-library-front',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'OG group from node',
+        'keyword' => 'group',
+        'name' => 'og_group_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'ding_library' => 'ding_library',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+        1 => array(
+          'name' => 'og_is_node_group',
+          'settings' => NULL,
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display;
+  $display->layout = 'twocol_stacked';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'right' => NULL,
+      'top' => NULL,
+      'middle' => NULL,
+      'bottom' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '%node:title';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_main_image';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'hidden',
+      'formatter' => 'image',
+      'formatter_settings' => array(
+        'image_style' => 'ding_library_header',
+        'image_link' => '',
+      ),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context_3',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'left';
+    $pane->type = 'views';
+    $pane->subtype = 'ding_news';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '4',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 1,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => 'node/%/news',
+      'display' => 'ctools_context_library_list',
+      'context' => array(
+        0 => 'argument_entity_id:node_1.nid',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context_3',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][1] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'left';
+    $pane->type = 'views';
+    $pane->subtype = 'ding_event';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '6',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 1,
+      'feed_icons' => 0,
+      'panel_args' => 0,
+      'link_to_view' => 0,
+      'args' => '',
+      'url' => 'node/%/events',
+      'display' => 'ctools_context_library_teaser',
+      'context' => array(
+        0 => 'argument_entity_id:node_1.nid',
+      ),
+      'override_title' => 0,
+      'override_title_text' => 'Calendar',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context_3',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'ding-event-teaser-list',
+    );
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-3'] = $pane;
+    $display->panels['left'][2] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'right';
+    $pane->type = 'entity_field';
+    $pane->subtype = 'node:field_opening_hours';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'label' => 'title',
+      'formatter' => 'text_default',
+      'formatter_settings' => array(),
+      'context' => 'argument_entity_id:node_1',
+      'override_title' => 0,
+      'override_title_text' => 'Opening hours',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context_3',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-4'] = $pane;
+    $display->panels['right'][0] = 'new-4';
+    $pane = new stdClass;
+    $pane->pid = 'new-5';
+    $pane->panel = 'right';
+    $pane->type = 'contact';
+    $pane->subtype = 'contact';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+      'context' => 'argument_entity_id:node_1',
+    );
+    $pane->cache = array(
+      'method' => 'rules',
+      'settings' => array(
+        'granularity' => 'context',
+        'language' => 1,
+        'cache_key' => 'panel_context:node_view:node_view_panel_context_3',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => '',
+      'css_class' => 'ding-library-contact',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-5'] = $pane;
+    $display->panels['right'][1] = 'new-5';
+    $pane = new stdClass;
+    $pane->pid = 'new-6';
+    $pane->panel = 'right';
+    $pane->type = 'campaign';
+    $pane->subtype = 'campaign';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'ding_campaign_count' => 3,
+      'ding_campaign_offset' => 0,
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+        1 => 'argument_entity_id:node_1',
+        2 => 'empty',
+        3 => 'empty',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '600',
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $display->content['new-6'] = $pane;
+    $display->panels['right'][2] = 'new-6';
+  $display->hide_title = PANELS_TITLE_FIXED;
+  $display->title_pane = 'new-1';
+  $handler->conf['display'] = $display;
+  $export['node_view_panel_context_dbc3'] = $handler;
+
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
+  $handler->name = 'node_view_panel_context_dbc4';
+  $handler->task = 'node_view';
+  $handler->subtask = '';
+  $handler->handler = 'panel_context';
+  $handler->weight = -5;
+  $handler->conf = array(
+    'title' => 'DBCore Page',
+    'no_blocks' => 0,
+    'pipeline' => 'standard',
+    'css_id' => '',
+    'css' => '',
+    'contexts' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'Library',
+        'keyword' => 'library_group',
+        'name' => 'og_group_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+      1 => array(
+        'identifier' => 'Library node',
+        'keyword' => 'library_node',
+        'name' => 'og_node_from_group',
+        'context' => 'relationship_og_group_from_node_1',
+        'id' => 1,
+      ),
+      2 => array(
+        'identifier' => 'Multiple terms from node',
+        'keyword' => 'terms',
+        'name' => 'terms_from_node',
+        'context' => 'argument_entity_id:node_1',
+        'vid' => array(
+          3 => '3',
+          4 => '4',
+          1 => '1',
+          2 => '2',
+        ),
+        'concatenator' => ',',
+        'id' => 1,
+      ),
+    ),
+    'access' => array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'node_type',
+          'settings' => array(
+            'type' => array(
+              'ding_page' => 'ding_page',
+            ),
+          ),
+          'context' => 'argument_entity_id:node_1',
+          'not' => FALSE,
+        ),
+      ),
+      'logic' => 'and',
+    ),
+  );
+  $display = new panels_display;
+  $display->layout = 'threecol_25_50_25';
+  $display->layout_settings = array();
+  $display->panel_settings = array(
+    'style_settings' => array(
+      'default' => NULL,
+      'left' => NULL,
+      'middle' => NULL,
+      'right' => NULL,
+    ),
+  );
+  $display->cache = array();
+  $display->title = '';
+  $display->content = array();
+  $display->panels = array();
+    $pane = new stdClass;
+    $pane->pid = 'new-1';
+    $pane->panel = 'left';
+    $pane->type = 'block';
+    $pane->subtype = 'ding_library-ding_sidebar_menu';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-1'] = $pane;
+    $display->panels['left'][0] = 'new-1';
+    $pane = new stdClass;
+    $pane->pid = 'new-2';
+    $pane->panel = 'middle';
+    $pane->type = 'node_content';
+    $pane->subtype = 'node_content';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'links' => 1,
+      'no_extras' => 0,
+      'override_title' => 0,
+      'override_title_text' => '',
+      'identifier' => '',
+      'link' => 0,
+      'leave_node_title' => 1,
+      'build_mode' => 'full',
+      'context' => 'argument_entity_id:node_1',
+    );
+    $pane->cache = array(
+      'method' => '0',
+      'settings' => array(),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+      'style' => 'naked',
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-2'] = $pane;
+    $display->panels['middle'][0] = 'new-2';
+    $pane = new stdClass;
+    $pane->pid = 'new-3';
+    $pane->panel = 'right';
+    $pane->type = 'campaign';
+    $pane->subtype = 'campaign';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'ding_campaign_count' => 3,
+      'ding_campaign_offset' => 0,
+      'context' => array(
+        0 => 'argument_entity_id:node_1',
+        1 => 'relationship_og_node_from_group_1',
+        2 => 'empty',
+        3 => 'relationship_terms_from_node_1',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array(
+      'method' => 'simple',
+      'settings' => array(
+        'lifetime' => '600',
+        'granularity' => 'context',
+      ),
+    );
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $display->content['new-3'] = $pane;
+    $display->panels['right'][0] = 'new-3';
+    $pane = new stdClass;
+    $pane->pid = 'new-4';
+    $pane->panel = 'right';
+    $pane->type = 'block';
+    $pane->subtype = 'similarterms-ding_content_tags';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $display->content['new-4'] = $pane;
+    $display->panels['right'][1] = 'new-4';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-2';
+  $handler->conf['display'] = $display;
+  $export['node_view_panel_context_dbc4'] = $handler;
+
+  $handler = new stdClass;
+  $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
+  $handler->api_version = 1;
   $handler->name = 'ting_collection_panel_context_2';
   $handler->task = 'ting_collection';
   $handler->subtask = '';
