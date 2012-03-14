@@ -1,0 +1,7 @@
+core = "7.x"
+dependencies[] = "strongarm"
+description = "Panels configuration for DBCore Omega based sites"
+features[ctools][] = "strongarm:strongarm:1"
+features[variable][] = "theme_default"
+name = "DBCore Omega Frontend"
+package = "Features"

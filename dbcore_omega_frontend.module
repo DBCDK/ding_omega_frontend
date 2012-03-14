@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the DBCore Omega Frontend feature.
+ */
+
+include_once('dbcore_omega_frontend.features.inc');
