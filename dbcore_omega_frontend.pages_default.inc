@@ -3148,7 +3148,7 @@ search/ting
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'ting_collection_panel_context_2';
+  $handler->name = 'ting_collection_panel_context_dbc';
   $handler->task = 'ting_collection';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
@@ -3269,12 +3269,12 @@ search/ting
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-3';
   $handler->conf['display'] = $display;
-  $export['ting_collection_panel_context_2'] = $handler;
+  $export['ting_collection_panel_context_dbc'] = $handler;
 
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'ting_object_panel_context_2';
+  $handler->name = 'ting_object_panel_context_dbc';
   $handler->task = 'ting_object';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
@@ -3415,7 +3415,7 @@ search/ting
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = 'new-4';
   $handler->conf['display'] = $display;
-  $export['ting_object_panel_context_2'] = $handler;
+  $export['ting_object_panel_context_dbc'] = $handler;
 
   $handler = new stdClass;
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
