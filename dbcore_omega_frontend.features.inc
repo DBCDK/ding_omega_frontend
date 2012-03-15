@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dbcore_omega_frontend.features.inc
+ * ding_omega_frontend.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function dbcore_omega_frontend_ctools_plugin_api() {
+function ding_omega_frontend_ctools_plugin_api() {
   list($module, $api) = func_get_args();
   if ($module == "page_manager" && $api == "pages_default") {
     return array("version" => "1");

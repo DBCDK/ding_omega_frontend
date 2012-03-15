@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dbcore_omega_frontend.pages_default.inc
+ * ding_omega_frontend.pages_default.inc
  */
 
 /**
  * Implements hook_default_page_manager_handlers().
  */
-function dbcore_omega_frontend_default_page_manager_handlers() {
+function ding_omega_frontend_default_page_manager_handlers() {
   $export = array();
 
   $handler = new stdClass;
@@ -19,7 +19,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -8;
   $handler->conf = array(
-    'title' => 'DBCore News story',
+    'title' => 'Omega News story',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -238,7 +238,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -7;
   $handler->conf = array(
-    'title' => 'DBCore Event',
+    'title' => 'Omega Event',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -456,7 +456,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -6;
   $handler->conf = array(
-    'title' => 'DBCore Library (organic group)',
+    'title' => 'Omega Library (organic group)',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => 'ding-library-front',
@@ -741,7 +741,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Page',
+    'title' => 'Omega Page',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -927,7 +927,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Library events',
+    'title' => 'Omega Library events',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -1139,7 +1139,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Ding events',
+    'title' => 'Omega Ding events',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -1317,7 +1317,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Ding frontpage',
+    'title' => 'Omega Ding frontpage',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -1489,7 +1489,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Ding libraries',
+    'title' => 'Omega Ding libraries',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => 'ding-library-page',
@@ -1612,7 +1612,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => 'ding-library-about',
@@ -1861,7 +1861,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Library news',
+    'title' => 'Omega Library news',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2066,7 +2066,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Ding news',
+    'title' => 'Omega Ding news',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2263,7 +2263,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2301,7 +2301,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => 'user-bookmarks',
@@ -2402,7 +2402,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2548,7 +2548,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2654,7 +2654,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2789,7 +2789,7 @@ function dbcore_omega_frontend_default_page_manager_handlers() {
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore search nodes',
+    'title' => 'Omega search nodes',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -2888,7 +2888,7 @@ search/node',
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore ting search',
+    'title' => 'Omega ting search',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -3154,7 +3154,7 @@ search/ting
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -3280,7 +3280,7 @@ search/ting
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Ting object',
+    'title' => 'Omega Ting object',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -3426,7 +3426,7 @@ search/ting
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Panel',
+    'title' => 'Omega Panel',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',
@@ -3527,7 +3527,7 @@ search/ting
   $handler->handler = 'panel_context';
   $handler->weight = -5;
   $handler->conf = array(
-    'title' => 'DBCore Use profile',
+    'title' => 'Omega Use profile',
     'no_blocks' => 0,
     'pipeline' => 'standard',
     'css_id' => '',

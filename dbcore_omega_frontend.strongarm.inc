@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * dbcore_omega_frontend.strongarm.inc
+ * ding_omega_frontend.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function dbcore_omega_frontend_strongarm() {
+function ding_omega_frontend_strongarm() {
   $export = array();
 
   $strongarm = new stdClass;
