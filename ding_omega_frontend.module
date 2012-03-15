@@ -15,13 +15,26 @@ include_once 'ding_omega_frontend.features.inc';
  * Requires a patch to ctools/page_manager.module (call drupal_alter).
  */
 function ding_omega_frontend_page_manager_load_task_handlers_alter(&$handlers, $task, $subtask_id = NULL) {
-  // Load the page handlers handled by this feature module.
-  $ding_omega_frontend_handlers = array_keys(ding_omega_frontend_default_page_manager_handlers());
+  // If we are on an admin/structure/features* page or we are being called
+  // through drush features we will filter out page handlers.
+  $in_drush_features = FALSE;
 
-  if ($task['name'] == 'page') {
-    foreach ($handlers as $handler) {
-      if (in_array($handler->name, $ding_omega_frontend_handlers)) {
-        unset($handlers[$handler->name]);
+  if (function_exists('drush_get_command')) {
+    $command = drush_get_command();
+    if (isset($command['drupal dependencies']) && in_array('features', $command['drupal dependencies'])) {
+      $in_drush_features = TRUE;
+    }
+  };
+
+  if (preg_match('/admin\/structure\/features/', $_GET['q']) || $in_drush_features) {
+    // Load the page handlers handled by this feature module.
+    $ding_omega_frontend_handlers = array_keys(ding_omega_frontend_default_page_manager_handlers());
+
+    if ($task['name'] == 'page') {
+      foreach ($handlers as $handler) {
+        if (in_array($handler->name, $ding_omega_frontend_handlers)) {
+          unset($handlers[$handler->name]);
+        }
       }
     }
   }
