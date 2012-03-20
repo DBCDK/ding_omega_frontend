@@ -91,7 +91,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
 <none>',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -312,7 +312,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
 <none>',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -494,7 +494,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'ding2omega_2col_9_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -794,7 +794,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -974,7 +974,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
   <none>',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25_stacked';
+  $display->layout = 'ding2omega_3col_3_6_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1155,7 +1155,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
   <none>',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1326,7 +1326,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'ding2omega_2col_9_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1498,7 +1498,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'ding2omega_2col_9_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1642,7 +1642,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25_stacked';
+  $display->layout = 'ding2omega_3col_3_6_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -1909,7 +1909,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
   <none>',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25_stacked';
+  $display->layout = 'ding2omega_3col_3_6_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2082,7 +2082,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
   news/%tid:name',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2272,7 +2272,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'twocol_stacked';
+  $display->layout = 'ding2omega_2col_9_3_stacked';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2310,7 +2310,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'ding2omega_2col_2_10';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2415,7 +2415,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'ding2omega_2col_2_10';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2561,7 +2561,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'ding2omega_2col_2_10';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2667,7 +2667,7 @@ function ding_omega_frontend_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'ding2omega_2col_2_10';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2803,7 +2803,7 @@ Website',
 search/node',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -2905,7 +2905,7 @@ search/ting
 ',
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3163,7 +3163,7 @@ search/ting
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3289,7 +3289,7 @@ search/ting
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'threecol_25_50_25';
+  $display->layout = 'ding2omega_3col_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3435,7 +3435,7 @@ search/ting
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'ding2omega_2col_2_10';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -3536,7 +3536,7 @@ search/ting
     'relationships' => array(),
   );
   $display = new panels_display;
-  $display->layout = 'twocol';
+  $display->layout = 'ding2omega_2col_2_10';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
