@@ -14,7 +14,7 @@ function ding_omega_frontend_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'theme_default';
-  $strongarm->value = 'artesis_basetheme';
+  $strongarm->value = 'ding2omega';
   $export['theme_default'] = $strongarm;
 
   return $export;
